@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7phr083c5373"]
+[gd_scene load_steps=14 format=3 uid="uid://c7phr083c5373"]
 
 [ext_resource type="Texture2D" uid="uid://lngomwutx552" path="res://assets/characters/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dr3n72q6km4bm" path="res://assets/characters/player.gd" id="1_rkbax"]
@@ -117,8 +117,24 @@ tracks/0/keys = {
 "values": [65, 70]
 }
 
+[sub_resource type="Animation" id="Animation_y7kcb"]
+resource_name = "walk_left"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_oul6g"]
-resource_name = "walking"
+resource_name = "walk_right"
 length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
@@ -143,7 +159,8 @@ _data = {
 &"death": SubResource("Animation_h1q25"),
 &"idle": SubResource("Animation_sgctp"),
 &"jump": SubResource("Animation_evndh"),
-&"walking": SubResource("Animation_oul6g")
+&"walk_left": SubResource("Animation_y7kcb"),
+&"walk_right": SubResource("Animation_oul6g")
 }
 
 [node name="player" type="CharacterBody2D"]

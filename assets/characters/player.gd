@@ -26,7 +26,16 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		sprite.flip_h = direction < 0
+		
+		if state != "walk_right":
+			animation_player.play("walk_right")
+			state = "walk_right"
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if state != "idle":
+			animation_player.play("idle")
+			state = "idle"
 
 	move_and_slide()
