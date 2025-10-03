@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://dp4nh08rwcgxt"]
+[gd_scene load_steps=4 format=3 uid="uid://c68n12kl5uf2u"]
+
+[ext_resource type="TileSet" path="C:\Users\csabi\Documents\projekt\assets\tiles\basicTileSet.png" id="1_k2r0d"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3kb6w"]
+
+[sub_resource type="GDScript" id="GDScript_c6ma7"]
+script/source = "extends TileMap
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Map" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+material = SubResource("CanvasItemMaterial_3kb6w")
+tile_set = ExtResource("1_k2r0d")
+format = 2
+script = SubResource("GDScript_c6ma7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7phr083c5373"]
+[gd_scene load_steps=12 format=3 uid="uid://c7phr083c5373"]
 
 [ext_resource type="Texture2D" uid="uid://lngomwutx552" path="res://assets/characters/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dr3n72q6km4bm" path="res://assets/characters/player.gd" id="1_rkbax"]
@@ -6,21 +6,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3eadt"]
 radius = 28.0
 height = 90.0
-
-[sub_resource type="Animation" id="Animation_8absr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_3eadt"]
 resource_name = "attack1"
@@ -117,25 +102,9 @@ tracks/0/keys = {
 "values": [65, 70]
 }
 
-[sub_resource type="Animation" id="Animation_y7kcb"]
-resource_name = "walk_left"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
 [sub_resource type="Animation" id="Animation_oul6g"]
-resource_name = "walk_right"
-length = 1.2
+resource_name = "walk"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -144,7 +113,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [13, 20]
@@ -152,15 +121,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ro2l"]
 _data = {
-&"RESET": SubResource("Animation_8absr"),
 &"attack1": SubResource("Animation_3eadt"),
 &"attack2": SubResource("Animation_tory2"),
 &"attack3": SubResource("Animation_x0jl3"),
 &"death": SubResource("Animation_h1q25"),
 &"idle": SubResource("Animation_sgctp"),
 &"jump": SubResource("Animation_evndh"),
-&"walk_left": SubResource("Animation_y7kcb"),
-&"walk_right": SubResource("Animation_oul6g")
+&"walk": SubResource("Animation_oul6g")
 }
 
 [node name="player" type="CharacterBody2D"]
@@ -177,6 +144,7 @@ scale = Vector2(5.09375, 4.53125)
 texture = ExtResource("1_oul6g")
 hframes = 13
 vframes = 8
+frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

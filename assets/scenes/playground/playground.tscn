@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cshw342g83nlb"]
+[gd_scene load_steps=3 format=3 uid="uid://cshw342g83nlb"]
 
 [ext_resource type="PackedScene" uid="uid://c7phr083c5373" path="res://assets/characters/player.tscn" id="1_sgctp"]
+[ext_resource type="Texture2D" uid="uid://cu1l1y5swd61j" path="res://icon.svg" id="2_7varb"]
 
 [node name="Playground" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_sgctp")]
 position = Vector2(576, 279)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(551, 390)
+scale = Vector2(2.61719, 0.835937)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3.82089, 167.327)
+scale = Vector2(4.58507, 1.45561)
+texture = ExtResource("2_7varb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(3.82089, 167.327)
+scale = Vector2(4.58507, 1.45561)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
